@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  //Abaixo indico que banco de dados vou usar e a url do banco
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//Abaixo defino a entidade(model) de login (usuario) e utilizo mecanismo de email (único), password e name
+model User {
+  id Int @id @default(autoincrement())
+
+  email    String @unique
+  password String
+
+  name String
+}
