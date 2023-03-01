@@ -1,26 +1,28 @@
 import { User } from '../entities/user.entity'; // importa a entidade User
 import {
-    IsEmail,
-    IsString,
-    Matches,
-    MaxLength,
-    MinLength,
+  IsEmail,
+  IsString,
+  Matches,
+  MaxLength,
+  MinLength,
 } from 'class-validator'; // importa os decoradores do class-validator
 
-export class CreateUserDto extends User { // define a classe CreateUserDto que herda da entidade User
-    @IsEmail() // decora o atributo email com o validador IsEmail do class-validator
-    email: string;
+export class CreateUserDto extends User {
+  // define a classe CreateUserDto que herda da entidade User
+  @IsEmail() // decora o atributo email com o validador IsEmail do class-validator
+  email: string;
 
-    @IsString() // decora o atributo password com o validador IsString do class-validator
-    @MinLength(4) // adiciona a validação de comprimento mínimo de 4 caracteres
-    @MaxLength(20) // adiciona a validação de comprimento máximo de 20 caracteres
-    @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, { // adiciona a validação de expressão regular
-        message: 'password too weak',
-    })
-    password: string;
+  @IsString() // decora o atributo password com o validador IsString do class-validator
+  @MinLength(4) // adiciona a validação de comprimento mínimo de 4 caracteres
+  @MaxLength(20) // adiciona a validação de comprimento máximo de 20 caracteres
+  @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
+    // adiciona a validação de expressão regular
+    message: 'password too weak',
+  })
+  password: string;
 
-    @IsString() // decora o atributo name com o validador IsString do class-validator
-    name: string;
+  @IsString() // decora o atributo name com o validador IsString do class-validator
+  name: string;
 }
 
 /**

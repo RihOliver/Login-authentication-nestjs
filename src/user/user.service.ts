@@ -23,8 +23,10 @@ export class UserService {
     };
   }
 
-  findOne(id: number) {
-    // método que busca um usuário pelo ID (ainda não implementado)
-    return `This action returns a #${id} user`;
+  findByEmail(email: string) {
+    // método que busca um usuário pelo email para fazer login
+    this.prisma.user.findUnique({
+      where: { email },
+    });
   }
 }
