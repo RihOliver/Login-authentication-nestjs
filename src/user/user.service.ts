@@ -25,7 +25,7 @@ export class UserService {
 
   findByEmail(email: string) {
     // método que busca um usuário pelo email para fazer login
-    this.prisma.user.findUnique({
+    return this.prisma.user.findUnique({
       where: { email },
     });
   }

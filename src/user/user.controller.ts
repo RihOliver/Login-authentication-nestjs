@@ -4,7 +4,7 @@ import { UserService } from './user.service';
 
 @Controller('user') // define a rota base para as rotas deste controller
 export class UserController {
-  constructor(private readonly userService: UserService) { } //injeta o service de usuário no construtor
+  constructor(private readonly userService: UserService) {} //injeta o service de usuário no construtor
 
   @Post() // define a rota POST para a criação de usuário
   create(@Body() createUserDto: CreateUserDto) {
