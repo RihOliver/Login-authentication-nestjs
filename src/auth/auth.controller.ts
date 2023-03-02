@@ -4,9 +4,11 @@ import {
   HttpCode,
   HttpStatus,
   UseGuards,
+  Request,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
+import { AuthRequest } from './models/AuthRequest';
 
 @Controller()
 export class AuthController {
@@ -15,11 +17,10 @@ export class AuthController {
   @Post('login')
   @HttpCode(HttpStatus.OK) //Passando um status 200
   @UseGuards(LocalAuthGuard) //Aqui estou declarando que meu post na rota login vai usar esse guardião que é o primeiro codigo a ser passado
-  login() {
-    /**Só posso entrar no mecanismo de login caso passe pelo guardião */
-    return 'Realizar login';
+  /**Só posso entrar no mecanismo de login caso passe pelo guardião */
+  login(@Request() req: AuthRequest) {
+    console.log(req.user);
     /**Aqui retorno a chamada ao login() que está dentro de authService*/
-    /*         return this.authService.login();
-     */
+    return this.authService.login(req.user);
   }
 }
