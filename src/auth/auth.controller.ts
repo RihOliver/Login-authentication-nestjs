@@ -14,7 +14,7 @@ import { IsPublic } from './decorators/is-public.decorator';
 @Controller()
 export class AuthController {
   /**Declarando o meu service que vai trabalhar para esse controller */
-  constructor(private readonly authService: AuthService) { }
+  constructor(private readonly authService: AuthService) {}
   @IsPublic()
   @Post('login')
   @HttpCode(HttpStatus.OK) //Passando um status 200

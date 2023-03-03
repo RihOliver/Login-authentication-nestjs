@@ -5,7 +5,7 @@ import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 
 @Controller('user') // define a rota base para as rotas deste controller
 export class UserController {
-  constructor(private readonly userService: UserService) { } //injeta o service de usuário no construtor
+  constructor(private readonly userService: UserService) {} //injeta o service de usuário no construtor
 
   /* @IsPublic() caso eu queria usar novo usuario sem precisar passar o token */
   @Post() // define a rota POST para a criação de usuário
