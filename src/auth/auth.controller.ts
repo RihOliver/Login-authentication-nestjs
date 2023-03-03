@@ -9,11 +9,13 @@ import {
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { AuthRequest } from './models/AuthRequest';
+import { IsPublic } from './decorators/is-public.decorator';
 
 @Controller()
 export class AuthController {
   /**Declarando o meu service que vai trabalhar para esse controller */
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
+  @IsPublic()
   @Post('login')
   @HttpCode(HttpStatus.OK) //Passando um status 200
   @UseGuards(LocalAuthGuard) //Aqui estou declarando que meu post na rota login vai usar esse guardião que é o primeiro codigo a ser passado
