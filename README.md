@@ -13,5 +13,3 @@ This is a Nest.js project for creating a login authentication system.
 <h1>Usage</h1>
 <p>• npm run start:dev.</p>
 
-<h1>License</h1>
-<p>This project is licensed under the UNLICENSED license.</p>
