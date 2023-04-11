@@ -7,7 +7,7 @@ import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 export class UserController {
   constructor(private readonly userService: UserService) {} //injeta o service de usuário no construtor
 
-  /* @IsPublic() caso eu queria usar novo usuario sem precisar passar o token */
+  /* @IsPublic() caso eu queira usar novo usuario sem precisar passar o token */
   @Post() // define a rota POST para a criação de usuário
   create(@Body() createUserDto: CreateUserDto) {
     // acima define o método create para receber os dados do usuário através do DTO
